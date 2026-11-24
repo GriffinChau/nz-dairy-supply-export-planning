@@ -40,6 +40,6 @@ Use a seasonal baseline for the export outlook and monitor supply separately. In
 
 Monthly data audit, descriptive analysis and forecast evaluation complete. See [forecast evaluation and planning decision](docs/forecast_evaluation.md) for results, methods and limitations.
 
-See [Excel analysis and validation](docs/excel_review.md) and the [Power Query preparation script](powerquery/MonthlyPlanning.m). The local workbook contains two native PivotTables; desktop refresh and the Power Query connection still need verification. Next: build a Power BI planning review and exception analysis; verify the Power Query and PivotTable refresh in desktop Excel.
+See [Excel analysis and validation](docs/excel_review.md) and the [Power Query preparation script](powerquery/MonthlyPlanning.m). The local workbook contains two native PivotTables; desktop refresh and the Power Query connection still need verification. Planning exceptions, source reconciliation and a retrospective three-month outlook have been added to the local Excel workbook. Next: complete [desktop Excel acceptance](docs/excel_acceptance.md), including source refresh and PivotTable checks. Power BI is deferred until Excel is accepted.
 
-The local data and workbook are excluded from version control until source reuse terms are verified.
+See [data sources and reuse](data/README.md) for the published Stats NZ extract and raw-source manifest. The 11 original annual Stats NZ CSVs are prepared for upload but have not yet been pushed. The milk source, joined data and Excel workbook remain local pending reuse permission.
