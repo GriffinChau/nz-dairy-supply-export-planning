@@ -1,0 +1,9 @@
+.DS_Store
+__MACOSX/
+data/raw/
+data/processed/
+excel/*.xlsx
+*.zip
+~$*
+.ipynb_checkpoints/
+__pycache__/
