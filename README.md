@@ -32,6 +32,8 @@ See [data preparation and validation](docs/data_preparation.md) for the exact se
 
 ## Status and next step
 
-Monthly data audit and descriptive review complete. Next: reproduce preparation with Power Query, build native PivotTables, then test forecast methods on unseen periods. No forecast accuracy or operational improvements have been verified yet.
+Monthly data audit, descriptive analysis and initial Excel validation complete. For 2022-2023 one-month-ahead validation, forecasting the same month last year reduced WAPE from 47.60% to 2.95% for milk supply and from 37.53% to 24.37% for WMP exports. These are validation results, not independent test results. Earlier milk supply has not yet been shown to improve export forecasting.
+
+See [Excel analysis and validation](docs/excel_review.md) and the [Power Query preparation script](powerquery/MonthlyPlanning.m). The local workbook contains two native PivotTables; desktop refresh and the Power Query connection still need verification. Next: compare the export-only and supply-informed models across the proposed horizons before final evaluation.
 
 The local data and workbook are excluded from version control until source reuse terms are verified.
