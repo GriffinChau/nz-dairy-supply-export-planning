@@ -1,38 +1,38 @@
-# Excel data lineage and acceptance review
+# Desktop Excel release and dashboard setup
 
-## Business purpose
+The current master is the user-saved version 08 workbook with three native Power Query connections: MilkSupply, WMPExports and MonthlyPlanning. The three queries successfully previewed on Excel for Mac and the saved workbook contains 132 rows in each output. The 1,320 cells of MonthlyPlanning matched Monthly Data within numeric tolerance. The workbook has 22 sheets, two native PivotTables and an existing Year Review dropdown. The complete workbook remains local pending source reuse rights.
 
-Trace each monthly figure to its source before using forecasts in planning. The analysis uses 132 matched months from January 2015 to December 2025.
+## 1. Preserve the working connections
 
-## Data locations
+Save a local copy of the master workbook before changing it. Do not delete Monthly Data or overwrite the evaluated snapshot. Avoid third-party XLSX round-trips that can strip the Power Query mashup.
 
-- data/raw/: eleven unmodified national export CSVs and the independently downloaded milk workbook. Public repository allows only the eleven named Stats NZ CSVs. The milk workbook remains local.
-- data/staging/: separate filtered milk and WMP records. Local only.
-- data/processed/: monthly joined dataset and quality checks. Local only.
-- data/public/: attributed Stats NZ export extract, 132 rows.
-- excel/06_nz_dairy_excel_lineage.xlsx: local analysis workbook.
-- powerquery/MonthlyPlanning.m: separate Power Query preparation script.
+Use Data > Refresh All. Wait for all queries to finish. The native connections have been loaded and saved, but a full post-save refresh is not independently verified. On Mac, the original multi-source script initially returned a gateway error; separate MilkSupply and WMPExports queries with explicit source paths and a third merge query succeeded. If files move, update the literal paths in the source queries using Advanced Editor.
 
-See data/README.md and data/raw_source_manifest.csv. Extract the supplied Stats NZ raw upload ZIP, copy only its data/raw CSVs to the cloned repository and use GitHub Desktop to commit and push. Compare filenames, file sizes and SHA256 values to the manifest. Do not upload the local milk workbook, joined dataset or analysis workbook pending permission. The full original annual CSVs are not yet present on the remote.
+## 2. Create the dashboard in Excel
 
-## New workbook sheets
+If Automate > New Script is available in your Microsoft 365 installation, open it, replace the default script with [BuildExecutiveDashboard.ts](../excel/BuildExecutiveDashboard.ts), and run on the backup copy. Office Scripts availability depends on the licence and settings. The script is prepared, not yet executed in desktop Excel. It creates an Executive Dashboard tab, review-year dropdown, four KPI cards, two ordinary formula-driven line charts, model comparison table and source-match warning. It formats the three loaded query sheets in Arial. It does not change raw data, coefficients, Power Query definitions or the existing two PivotTables.
 
-- Milk Source Extract: 132 selected source observations in thousand kg; Excel converts to kg.
-- Export Source Extract: 132 selected original monthly WMP records, quantities in kg.
-- Data Lineage: source locations, transformation stages, record counts and publication boundary.
-- Source Reconciliation: month-by-month comparison of milk, domestic exports, re-exports and total exports against Monthly Data. All 132 rows pass, with a 0.001 kg tolerance for milk and exact equality for export quantities.
-- Planning Outlook: retrospective January-March 2026 illustration with forecast origin 31 December 2025. Same month last year is the chosen baseline. Milk outlook 211.85, 171.16 and 173.99 million kg; WMP outlook 144.59, 124.45 and 120.92 million kg. These are forecasts from observed 2025 values, not synthetic input data or a current forecast. No 2026 actuals used to construct or evaluate this illustration.
+If Automate is unavailable, retain Year Review and use Insert > Chart to create line charts from its monthly current/prior-year values. Set chart placement and colours manually. A dashboard year selection should update the KPI and monthly charts together. Use the same font and numeric formatting across the new charts.
 
-Existing 2,891 formulas preserved exactly; 930 additional formulas. Two pivot definitions, two pivot cache pairs and three chart parts retained. Workbook archive integrity, source reconciliation, formula error scan and lineage preview checked. Desktop Excel behaviour remains an acceptance task.
+## 3. Native interactivity
 
-## Desktop Excel acceptance checklist
+Select the existing Seasonality PivotTable and use PivotTable Analyze > Insert Slicer, then choose Year. Place the slicer beside the pivot, not over data. Select the pivot and insert a chart if the Excel version supports a native PivotChart. Use average monthly milk supply and average monthly domestic WMP exports as separate series with clearly identified units, and keep month order Jan-Dec. Do not combine or subtract the physical quantities. Refresh and test the slicer; verify the corresponding chart responds. Repeat with Annual Review only if a slicer adds value. The dashboard's dropdown is separate from any pivot slicer. Do not describe ordinary charts as PivotCharts.
 
-1. Open the local workbook. Check that Excel does not display a repair warning.
-2. Verify all 132 Source Reconciliation rows show Pass. Inspect a month manually against the original source CSV and milk file.
-3. In Power Query, create a blank query and paste MonthlyPlanning.m. Set RawFolder to the directory containing the original source files. Load to a new worksheet and check the 132 rows and annual totals.
-4. Follow docs/excel_review.md to update Monthly Data A2:H133, preserving the I:J formulas, then refresh the native PivotTables. Confirm the Year filter, totals and average monthly values. Keep the fixed analysis window; changes to the date range require reviewing formula ranges and evaluation dates.
-5. Inspect formulas and notes in Forecast Review, Forecast Detail and Planning Exceptions. Verify the three-month retrospective outlook against the same months of 2025.
-6. Review typography, readability, charts and filters in desktop Excel. Only add native slicers or PivotCharts if they support a useful analysis.
-7. Approve Excel before proceeding to Power BI.
+## 4. Release checks
 
-The Power Query script has not been embedded in the workbook, and the Power Query engine and native PivotTable refresh have not been executed in this environment. Do not treat those steps as verified.
+| Test | Expected outcome |
+|---|---|
+| Open and save master copy | No repair warning; three native queries retained |
+| Data > Refresh All | Three query outputs refresh without gateway or source errors |
+| Query output | 132 months, 10 columns in MonthlyPlanning |
+| Dashboard source match | SOURCE MATCH when the snapshot matches; REVIEW REQUIRED on difference |
+| Change year to 2024, then 2025 | 2025 milk 1,975.74 million kg and domestic WMP 1,304.78 million kg; changes +2.70% and -2.86% |
+| Both existing PivotTables | Refresh with correct annual and monthly totals |
+| Slicer / PivotChart | Changes filter selection and chart as intended if supported |
+| Forecast review | 1-month seasonal WAPE 12.42% for exports in fixed 2024-2025 test |
+| Visual inspection | Arial, no cropped titles, legible chart axes and no unintended colours |
+| Save and reopen | Query definitions and all interactive features retained |
+
+If the source match check fails, do not copy new values over the snapshot. Investigate the source change, repeat quality checks, refit the model coefficients and rerun validation/test if appropriate. Update source documentation and preserve the prior version.
+
+The full workbook must not be publicly uploaded until the milk-source reuse terms are confirmed. The original Stats NZ files can be published with attribution; use the manifest and existing raw-data upload instructions. No user-specific file paths are published here.
