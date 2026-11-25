@@ -34,7 +34,7 @@ The intended users are planning, supply chain and operations analysts reviewing 
 
 ### 01 | Seasonal supply and export patterns are different
 
-Milk collection peaks in October (average 260.68 million kg milk solids) and reaches its low in June (18.75 million kg), approximately 13.9 times lower than the peak. The selected domestic WMP export series peaks in December and reaches its low in August. The two-month difference between average peaks is descriptive, not a demonstrated production-to-shipment lag.
+Milk collection peaks in October (average 260.68 million kg milk solids) and reaches its low in June (18.75 million kg), with the peak approximately 13.9 times the low. The selected domestic WMP export series peaks in December and reaches its low in August. The two-month difference between average peaks is descriptive, not a demonstrated production-to-shipment lag.
 
 ![Monthly WMP export seasonality](assets/wmp-seasonality.svg)
 
@@ -86,6 +86,21 @@ A proposed review threshold of **39.08 million kg** was derived from the fifth-l
 
 The threshold is an analyst-proposed screening rule, not a confidence interval or approved business tolerance.
 
+### 05 | Prioritise the months behind the annual variance
+
+The 2025 net export decline of 38.43 million kg reflects gross decreases of 77.72 million kg, partly offset by 39.29 million kg of increases. May and November account for **67.08% of gross monthly decreases**. Prioritise those months for investigation; do not confuse gross contribution with share of the net annual change.
+
+The complete 2024/25 dairy season also shows divergence: milk supply rose 2.97% compared with 2023/24, while selected domestic WMP exports fell 6.81%. The June-May view complements the calendar-year review.
+
+### 06 | Check performance beyond the original test period
+
+| Additional retrospective check | Actual months | WAPE | Signed bias |
+|---|---:|---:|---:|
+| Milk supply, Jan-May 2026 | 5 | 5.92% | -5.92% |
+| Domestic WMP exports, Jan-Jul 2026 | 7 | 13.02% | -10.13% |
+
+The unchanged seasonal baseline underforecast both series over these partial-year periods. Monitor bias and investigate sustained deviations rather than automatically overriding the forecast. No 2026 observations were used to select or fit the original baseline. See [additional planning review](docs/planning_review.md).
+
 ## 3. Recommendations and monthly review process
 
 | Recommended action | Proposed owner | Timing | Evidence to review |
@@ -118,6 +133,9 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 | Year Review | Dropdown-driven annual and monthly comparison | SUMIFS, IFERROR, conditional formatting |
 | Forecast Review | Model comparison, WAPE, MAE, bias and coefficients | Excel formulas applying fixed regression coefficients estimated with NumPy |
 | Planning Exceptions and Outlook | Evidence-based review threshold and three-month retrospective outlook | Explicit thresholds and forecast origin |
+| Refresh Control | Compare refreshed query output against the evaluated snapshot | 132/132 rows match; mismatch test passed |
+| Dairy Season and Variance Review | June-May heatmaps and monthly contribution analysis | Complete seasons only; year selection 2016-2025 |
+| 2026 Performance Check | Additional frozen-baseline evaluation | Partial-year WAPE and bias, no model tuning |
 | Executive Dashboard | Formula-driven KPIs, monthly charts and source-match gate | [Native Excel dashboard setup](docs/excel_acceptance.md); desktop build and verification pending |
 
 **Refresh design:** original files -> MilkSupply and WMPExports -> MonthlyPlanning -> source match check -> audited Monthly Data snapshot -> analysis and recommendations. A changed snapshot requires reviewing model coefficients and rerunning evaluation. It must not silently overwrite the evaluated historical data.
@@ -142,4 +160,4 @@ The public repository contains documentation, charts, code and the attributed ex
 
 ## 8. Release status
 
-Core analysis, model evaluation, source reconciliation and three native Power Query connections are complete. The native Excel dashboard setup and desktop acceptance procedure are documented; no Office Scripts dependency. Dashboard build, refresh, slicer and visual checks remain outstanding before the workbook is described as release-ready.
+Core analysis, model evaluation, three native Power Query connections and the additional planning review are implemented in local version 09. The existing workbook parts were preserved. Desktop refresh, PivotTable and interactivity checks, workbook visual acceptance and the final Executive Dashboard remain outstanding. No Office Scripts dependency.
