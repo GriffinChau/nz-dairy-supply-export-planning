@@ -21,12 +21,7 @@ The local file `excel/03_dairy_excel_analysis.xlsx` contains a 132-row monthly s
 
 ## Power Query setup in Excel
 
-1. Extract the eleven annual national export CSVs and place them alongside the original milk workbook in a local folder. Keep the names unchanged.
-2. In Excel, open Data > Get Data > From Other Sources > Blank Query (menu labels vary by Excel version). Open Advanced Editor and paste `powerquery/MonthlyPlanning.m`. Set RawFolder to your actual folder path, using the path syntax for your operating system.
-3. Name the query MonthlyPlanningQuery. Load to a new worksheet as an Excel Table. Check 132 rows, January 2015 to December 2025, and compare the 2024/2025 totals with the Annual Review sheet.
-4. To update the supplied fixed-window workbook after verifying the query, copy the eight source columns A:H from the query table as values over the existing Monthly Data rows A2:H133, retaining the I:J formulas. Refresh All and verify both PivotTables. If the period or source dimensions change, redesign the fixed formula ranges and the Seasonality pivot source first. Do not append new rows without revising the evaluation split.
-
-This section describes the initial prototype. Version 08 now contains three saved native Power Query connections built and previewed in Excel for Mac. Use [the current three-query templates](../powerquery/mac/README.md) and [desktop acceptance](excel_acceptance.md) instead of copying the historical query output over the audited snapshot.
+The current workbook contains three native Power Query connections. Follow the [three-query setup](../powerquery/queries/README.md) to import, validate and merge the original files, and the [acceptance checks](excel_acceptance.md) to verify the loaded result. The earlier single-query script is retained as a historical reference. Do not overwrite the audited Monthly Data snapshot without revalidation.
 
 ## Method and next step
 

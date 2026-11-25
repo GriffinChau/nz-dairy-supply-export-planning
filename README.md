@@ -131,7 +131,7 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 
 | Component | Function | Evidence |
 |---|---|---|
-| Power Query | Import, filter, append 11 CSVs, merge two sources | Three native queries saved in the local workbook after successful Mac previews |
+| Power Query | Import, filter, append 11 CSVs, merge two sources | Three native queries saved in the local workbook after successful source and merge checks in Microsoft Excel |
 | Data lineage | Original, staging, processed and reconciliation views | 132 matched months; 1,320 joined output cells matched the audited snapshot within tolerance |
 | Excel Tables and PivotTables | Annual totals and calendar-month seasonality | Two native PivotTables; desktop refresh acceptance still pending |
 | Year Review | Dropdown-driven annual and monthly comparison | SUMIFS, IFERROR, conditional formatting |
@@ -156,7 +156,7 @@ The local workbook presents six visible review tabs. Executive Dashboard provide
 - [Forecast evaluation](docs/forecast_evaluation.md) - training, validation, test design and model limitations.
 - [Excel calculation reference](docs/excel_calculations.md) - key formula locations, methods and interpretation.
 - [Desktop Excel acceptance and dashboard setup](docs/excel_acceptance.md) - native connection evidence, dashboard build and release checks.
-- [Native Power Query setup](powerquery/mac/README.md) - three-query templates based on the successful Mac session.
+- [Native Power Query setup](powerquery/queries/README.md) - three-query templates for importing, validating and merging the source data.
 
 The public repository contains documentation, charts, code, all 11 original annual Stats NZ export CSVs and the attributed 132-row export extract. The milk workbook and complete joined workbook remain local pending confirmation of reuse rights. Download the milk source independently using the documented source link. This is an independent portfolio case study, not a commissioned client project.
 
@@ -170,4 +170,4 @@ The public repository contains documentation, charts, code, all 11 original annu
 
 ## 8. Release status
 
-Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The repaired workbook opened in Excel for Mac and was saved with 2024 selected. The returned workbook and six-page A3 landscape PDF confirm linked year selection, chart rendering, source reconciliation and print layout. The saved file contains 6,000 formula cells, no cached formula errors, three native query connections, two native PivotTables and eight charts. Completion of a fresh Refresh All operation, PivotTable filter interaction and a further reopen of the saved copy remain unconfirmed. The [public findings graphic](assets/planning-findings.svg) is available for review. The full workbook and its PDF remain local pending milk-source reuse permission. All 11 original Stats NZ annual export CSVs are published and verified against the source package. No additional source connections are needed.
+Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The workbook was opened and saved in Microsoft Excel with 2024 selected. The saved workbook and six-page A3 landscape PDF confirm linked year selection, chart rendering, source reconciliation and print layout. The saved file contains 6,000 formula cells, no cached formula errors, three native query connections, two native PivotTables and eight charts. Completion of a fresh Refresh All operation, PivotTable filter interaction and a further reopen of the saved copy remain unconfirmed. The [public findings graphic](assets/planning-findings.svg) is available for review. The full workbook and its PDF remain local pending milk-source reuse permission. All 11 original Stats NZ annual export CSVs are published and verified against the source package. No additional source connections are needed.

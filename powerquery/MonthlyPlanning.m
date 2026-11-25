@@ -1,13 +1,13 @@
 let
-    // Change this folder to the location of the original Excel and extracted CSV files.
-    RawFolder = "C:\NZ Dairy\data\raw",
+    // Historical single-query reference. Set the full source folder path, including its trailing separator.
+    RawFolder = "/path/to/data/raw/",
     StartMonth = #date(2015, 1, 1),
     EndMonth = #date(2025, 12, 1),
     ProductCode = "0402210019",
     ExpectedMonths = 132,
 
     // Milk supply: convert the published thousand kg to kg.
-    MilkBook = Excel.Workbook(File.Contents(RawFolder & "\NZ-Milk-Production-202606-May-Table.xlsx"), null, true),
+    MilkBook = Excel.Workbook(File.Contents(RawFolder & "NZ-Milk-Production-202606-May-Table.xlsx"), null, true),
     MilkSheet = MilkBook{[Item="Monthly", Kind="Sheet"]}[Data],
     MilkHeaders = Table.PromoteHeaders(Table.Skip(MilkSheet, 1), [PromoteAllScalars=true]),
     MilkColumns = Table.SelectColumns(MilkHeaders, {"Month", "Milksolids ('000 kg)"}),
@@ -20,7 +20,7 @@ let
     ReadYear = (Year as number) as table =>
         let
             FileName = Number.ToText(Year) & "_Exports_HS10.csv",
-            Csv = Csv.Document(File.Contents(RawFolder & "\" & FileName), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+            Csv = Csv.Document(File.Contents(RawFolder & FileName), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
             Headers = Table.PromoteHeaders(Csv, [PromoteAllScalars=true]),
             Selected = Table.SelectRows(Headers, each [hs] = ProductCode),
             Columns = Table.SelectColumns(Selected, {"month", "uom", "status", "Export_Qty", "Re_export_Qty", "total_export_qty"}),

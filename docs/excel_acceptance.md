@@ -5,7 +5,7 @@ The local version 12 repaired workbook has six visible review pages, including E
 ## Refresh and source control
 
 1. Save a backup before changes. Keep the original source files accessible and the evaluated Monthly Data snapshot intact.
-2. Select Data > Refresh All in Microsoft Excel. Confirm the three queries complete without source or gateway errors. If files move, update literal source paths using the [three-query setup](../powerquery/mac/README.md).
+2. Select Data > Refresh All in Microsoft Excel. Confirm the three queries complete without source or gateway errors. If files move, update literal source paths using the [three-query setup](../powerquery/queries/README.md).
 3. Open Data & Quality. Confirm 132 matched query months, 132 expected months and SOURCE MATCH. This indicates agreement with the audited snapshot, not proof of a successful recent refresh. Check refresh completion separately.
 4. If the output differs, investigate revisions, repeat quality checks and re-evaluate the fixed forecast models as appropriate before adopting changes. Never silently overwrite the evaluated dataset.
 5. Supporting sheets are available through Excel's Unhide command. Refresh Control contains the detailed row-by-row match checks. MonthlyPlanning contains the loaded query result; Monthly Data is the audited analysis input.
@@ -41,7 +41,7 @@ All six pages use existing evidence and formula links. The dashboard and review 
 
 ## Desktop evidence received on 25 November 2026
 
-The repaired workbook opened successfully in Excel for Mac, as reported by the user. The returned desktop-saved workbook and exported PDF were inspected without editing the original. The saved file retains all 6,000 formula-cell locations (Excel reorganised shared formulas), three query connections, three query tables, two native PivotTables and eight charts. No cached formula errors were found. All 1,320 values in the ten-column monthly query output match the audited snapshot within the documented tolerances. The four historical source and query sheets retain their prior saved cell values.
+The workbook opened successfully in Microsoft Excel, as reported during acceptance testing. The saved workbook and exported PDF were inspected without modifying the original. The saved file retains all 6,000 formula-cell locations (Excel reorganised shared formulas), three query connections, three query tables, two native PivotTables and eight charts. No cached formula errors were found. All 1,320 values in the ten-column monthly query output match the audited snapshot within the documented tolerances. The four historical source and query sheets retain their prior saved cell values.
 
 | Acceptance item | Evidence status |
 |---|---|
