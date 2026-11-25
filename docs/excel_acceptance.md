@@ -43,4 +43,4 @@ The version 12 file passed package integrity, formula-cache and relationship che
 
 The Executive Dashboard is the opening presentation page. All six visible sheets have A3 landscape print areas fitted to one page each; verify the result in Print Preview. The analysis remains tied to the audited snapshot; source revisions require revalidation. See [calculation reference](excel_calculations.md) and [additional planning review](planning_review.md).
 
-The complete workbook is not public until milk-source reuse terms are confirmed. Stats NZ exports may be shared with attribution; see [source terms and manifest](../data/README.md).
+The complete workbook is not public until milk-source reuse terms are confirmed. All eleven original Stats NZ annual export CSVs are published in [data/raw/](../data/raw/) and verified against the source package. See [source terms and manifest](../data/README.md).

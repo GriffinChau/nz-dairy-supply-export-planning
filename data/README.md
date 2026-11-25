@@ -7,6 +7,10 @@ Source: Stats NZ. This work includes Stats NZ data licensed for reuse under the 
 
 The public extract contains 132 original selected monthly HS10 0402210019 records, 2015-2025, retaining seven source fields (month, hs, uom, Export_Qty, Re_export_Qty, total_export_qty and status). Other source columns and product codes are omitted. Quantities are unchanged. Treat hs as text to retain the leading zero. SHA256: 8ef4c2b9ca4b9388019770db24b25d8a5b61c004420d13d86bd9b12b7539a9f6.
 
-The eleven unchanged annual CSVs are prepared separately for upload to data/raw/. They have not yet been pushed. The public extract is not a replacement for those original files. See raw_source_manifest.csv to check their bytes and row counts.
+## Original annual export files
+
+All eleven unchanged annual national HS10 export CSVs are available in [data/raw/](raw/), covering January 2015 to December 2025 and 735,118 records before filtering. On 25 November 2026, all eleven remote Git blob identifiers and file sizes matched the original local source package; the local SHA-256 checksums and row counts also matched [the source manifest](raw_source_manifest.csv). The 132-row public extract is a filtered subset, not a replacement for the raw files.
+
+Download the individual CSVs from the raw directory or download the repository ZIP. Preserve the original filenames and contents when reproducing the analysis.
 
 Milk production is sourced from [DCANZ](https://dcanz.com/resources/), NZX and DairyNZ. The original workbook, extracted milk records, joined dataset and Excel working file remain local pending confirmation of reuse rights. Download the original workbook independently for reproduction. The Stats NZ licence does not cover milk data. No synthetic inputs are used.

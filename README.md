@@ -125,7 +125,7 @@ These are proposed actions for a planning review, not implemented company change
 | [Stats NZ overseas merchandise trade](https://www.stats.govt.nz/large-datasets/csv-files-for-download/overseas-merchandise-trade-datasets/) | 11 annual national HS10 exports files | Filter HS10 0402210019; use domestic exports, KGM, Final |
 | Joined monthly dataset | 132 months | Merge on month-start date; check duplicates, coverage and quantities |
 
-No synthetic inputs. All selected export records reconcile domestic exports plus re-exports to total exports. The milk source and complete joined workbook remain local pending confirmation of reuse rights. The [public Stats NZ extract](data/public/wmp_exports_2015_2025.csv) contains 132 selected records; [source manifest](data/raw_source_manifest.csv) identifies the original 11 files. See [data reuse](data/README.md).
+No synthetic inputs. All selected export records reconcile domestic exports plus re-exports to total exports. The milk source and complete joined workbook remain local pending confirmation of reuse rights. The [original Stats NZ export datasets](data/raw/) contain all 11 unchanged annual national HS10 CSVs (735,118 records, 2015-2025). All 11 Git blob identifiers and file sizes were checked against the original source package. The [public Stats NZ extract](data/public/wmp_exports_2015_2025.csv) contains the 132 selected records; the [source manifest](data/raw_source_manifest.csv) records row counts, byte sizes and SHA-256 checksums. See [data reuse](data/README.md).
 
 ## 5. Excel solution
 
@@ -158,7 +158,7 @@ The local workbook presents six visible review tabs. Executive Dashboard provide
 - [Desktop Excel acceptance and dashboard setup](docs/excel_acceptance.md) - native connection evidence, dashboard build and release checks.
 - [Native Power Query setup](powerquery/mac/README.md) - three-query templates based on the successful Mac session.
 
-The public repository contains documentation, charts, code and the attributed export extract. It does not contain the complete raw exports yet or the restricted milk workbook. Download source data independently using the documented links. This is an independent portfolio case study, not a commissioned client project.
+The public repository contains documentation, charts, code, all 11 original annual Stats NZ export CSVs and the attributed 132-row export extract. The milk workbook and complete joined workbook remain local pending confirmation of reuse rights. Download the milk source independently using the documented source link. This is an independent portfolio case study, not a commissioned client project.
 
 ## 7. Limitations
 
@@ -170,4 +170,4 @@ The public repository contains documentation, charts, code and the attributed ex
 
 ## 8. Release status
 
-Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The repaired version passed package and formula-cache checks and opened in Excel for Mac according to the user. Desktop refresh, selector, PivotTable, chart, print and save/reopen checks remain outstanding. The [public findings graphic](assets/planning-findings.svg) is available for review. No additional source connections are needed.
+Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The repaired version passed package and formula-cache checks and opened in Excel for Mac according to the user. Desktop refresh, selector, PivotTable, chart, print and save/reopen checks remain outstanding. The [public findings graphic](assets/planning-findings.svg) is available for review. All 11 original Stats NZ annual export CSVs are published and verified against the source package. No additional source connections are needed.
