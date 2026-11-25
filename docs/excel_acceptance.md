@@ -1,51 +1,45 @@
-# Desktop Excel release and dashboard setup
+# Excel release and acceptance
 
-The current compact candidate is local version 10, derived from version 09 and the user-saved version 08 workbook with three native Power Query connections: MilkSupply, WMPExports and MonthlyPlanning. The three queries successfully previewed on Excel for Mac and the saved workbook contains 132 rows in each output. The 1,320 cells of MonthlyPlanning matched Monthly Data within numeric tolerance. Version 10 has 24 sheets (eight visible review sheets and 16 hidden support sheets), two native PivotTables and the existing Year Review dropdown. Standalone instruction tabs have been removed; the [calculation reference](excel_calculations.md) and this guide serve as technical documentation. Use Unhide to access MonthlyPlanning, Refresh Control, Seasonality and Annual Review when verifying refresh and pivots. See [additional planning review](planning_review.md) for the four new sheets and the source-match gate. The complete workbook remains local pending source reuse rights.
+The consolidated local version 11 workbook has five visible review pages and 23 hidden supporting sheets. It retains the three native Power Query connections, two native PivotTables and the audited 2015-2025 snapshot. The 2026 additional evaluation is separate. The five-page presentation layer consolidates historical and variance analysis, seasonality, forecast performance, planning decisions and source quality without deleting underlying evidence. The workbook remains local pending source reuse permissions.
 
-## 1. Preserve the working connections
+## Refresh and source control
 
-Save a local copy of the master workbook before changing it. Do not delete Monthly Data or overwrite the evaluated snapshot. Avoid third-party XLSX round-trips that can strip the Power Query mashup.
+1. Save a backup before changes. Keep the original source files accessible and the evaluated Monthly Data snapshot intact.
+2. Select Data > Refresh All in Microsoft Excel. Confirm the three queries complete without source or gateway errors. If files move, update literal source paths using the [three-query setup](../powerquery/mac/README.md).
+3. Open Data & Quality. Confirm 132 matched query months, 132 expected months and SOURCE MATCH. This indicates agreement with the audited snapshot, not proof of a successful recent refresh. Check refresh completion separately.
+4. If the output differs, investigate revisions, repeat quality checks and re-evaluate the fixed forecast models as appropriate before adopting changes. Never silently overwrite the evaluated dataset.
+5. Supporting sheets are available through Excel's Unhide command. Refresh Control contains the detailed row-by-row match checks. MonthlyPlanning contains the loaded query result; Monthly Data is the audited analysis input.
 
-Use Data > Refresh All. Wait for all queries to finish. The native connections have been loaded and saved, but a full post-save refresh is not independently verified. On Mac, the original multi-source script initially returned a gateway error; separate MilkSupply and WMPExports queries with explicit source paths and a third merge query succeeded. If files move, update the literal paths in the source queries using Advanced Editor. See [three-query reproduction templates](../powerquery/mac/README.md).
+## Review pages
 
-## 2. Create the dashboard using native Excel features (after analytical acceptance)
-
-Office Scripts did not load in the user's Excel for Mac session. It is not required for this project. The manual route is the current release procedure; the experimental script is retained for reference only, not a verified deliverable.
-
-Only after the analytical workbook passes acceptance, on a backup copy of the saved master workbook, duplicate Year Review (Move or Copy > Create a copy), rename the copy Executive Dashboard and move it to the first tab. Preserve the original sheet. The existing B5 year selector and four KPI formulas already work from the audited Monthly Data snapshot. Confirm that changing B5 between 2024 and 2025 updates the copied sheet.
-
-- Milk supply chart: select A13:C25 on Executive Dashboard and use Insert > Line > 2-D Line. The two series are current-year and prior-year milk supply. Move the chart to the right of the existing review table.
-- Export chart: select A13:A25, then hold Command and select E13:F25. Insert a 2-D Line chart. Confirm the horizontal axis shows Jan-Dec and there are two series, not the YoY percentage or status columns. Move this chart below the first.
-- Use Arial, navy headings, teal current-year series and slate prior-year series. Label each chart in million kg, keeping milk solids and powder distinct. Hide gridlines and check readability.
-- Add a source-match formula in a blank row below the review, comparing refreshed MonthlyPlanning A2:H133 against audited Monthly Data A2:H133. Check 132 rows, unique dates via the validated query, matching dimensions, exact export quantities and milk tolerance of 0.001 kg. This is a comparison, not an automatic overwrite. Use the following formula in A34 (after verifying the cell is empty):
-
-```excel
-=IFERROR(IF(AND(COUNTA(MonthlyPlanning!A:A)=133,COUNT(MonthlyPlanning!A2:A133)=132,COUNT(MonthlyPlanning!E2:H133)=528,SUMPRODUCT(--(MonthlyPlanning!A2:D133<>'Monthly Data'!A2:D133))=0,SUMPRODUCT(--(ABS(MonthlyPlanning!E2:E133-'Monthly Data'!E2:E133)>0.001))=0,SUMPRODUCT(--(MonthlyPlanning!F2:H133<>'Monthly Data'!F2:H133))=0),"SOURCE MATCH","REVIEW REQUIRED"),"REVIEW REQUIRED")
-```
-
-The formula is prepared from the verified workbook structure; the desktop result still needs testing. A match means the query output agrees with the snapshot, not proof that the last refresh succeeded. Confirm refresh status separately. Do not overwrite the snapshot if a check fails.
-
-These dashboard charts are ordinary formula-driven charts, not native PivotCharts. The dashboard build and formatting remain to be checked on desktop Excel. No automation add-in, macro or Office Scripts dependency is required.
-
-## 3. Native interactivity
-
-Select the existing Seasonality PivotTable and use PivotTable Analyze > Insert Slicer, then choose Year. Place the slicer beside the pivot, not over data. Select the pivot and insert a chart if the Excel version supports a native PivotChart. Use average monthly milk supply and average monthly domestic WMP exports as separate series with clearly identified units, and keep month order Jan-Dec. Do not combine or subtract the physical quantities. Refresh and test the slicer; verify the corresponding chart responds. Repeat with Annual Review only if a slicer adds value. The dashboard's dropdown is separate from any pivot slicer. Do not describe ordinary charts as PivotCharts.
-
-## 4. Release checks
-
-| Test | Expected outcome |
+| Page | Main interaction or evidence |
 |---|---|
-| Open and save master copy | No repair warning; three native queries retained |
-| Data > Refresh All | Three query outputs refresh without gateway or source errors |
-| Query output | 132 months, 10 columns in MonthlyPlanning |
-| Refresh Control E4 | SOURCE MATCH when the snapshot matches; REVIEW REQUIRED on difference |
-| Change year to 2024, then 2025 | 2025 milk 1,975.74 million kg and domestic WMP 1,304.78 million kg; changes +2.70% and -2.86% |
-| Both existing PivotTables | Refresh with correct annual and monthly totals |
-| Slicer / PivotChart | Changes filter selection and chart as intended if supported |
-| Forecast review | 1-month seasonal WAPE 12.42% for exports in fixed 2024-2025 test |
-| Visual inspection | Arial, no cropped titles, legible chart axes and no unintended colours |
-| Save and reopen | Query definitions and all interactive features retained |
+| Historical Performance | B5 year selector (2016-2025); annual volumes, YoY changes, monthly contribution, two largest decreases and linked variance chart |
+| Dairy Season Review | June-May heatmaps; complete seasons only for full-season comparisons |
+| Forecast Performance | Held-out model WAPE by horizon, one-month milk and export baseline comparison, partial-year 2026 actuals and signed bias |
+| Planning Review | Three-month retrospective outlook and exception threshold applied to 24 test months |
+| Data & Quality | Source coverage and snapshot agreement, linked to the detailed controls |
 
-If the source match check fails, do not copy new values over the snapshot. Investigate the source change, repeat quality checks, refit the model coefficients and rerun validation/test if appropriate. Update source documentation and preserve the prior version.
+All five pages use existing evidence and formula links. The two additional charts are ordinary Excel charts with linked data, not PivotCharts. Native PivotTables are preserved in Seasonality and Annual Review, available through Unhide. A native slicer or PivotChart may be added only if the relevant desktop version supports it and it improves the planning workflow. Do not describe an untested feature as implemented. No macros or Office Scripts dependency.
 
-The full workbook must not be publicly uploaded until the milk-source reuse terms are confirmed. The original Stats NZ files can be published with attribution; use the manifest and existing raw-data upload instructions. No user-specific file paths are published here.
+## Acceptance tests
+
+| Test | Expected result |
+|---|---|
+| Open workbook | No repair message; three saved query definitions and both PivotTables retained |
+| Refresh All | No connection error; MonthlyPlanning contains 132 rows and 10 columns |
+| Data & Quality A7, E7, I7 | SOURCE MATCH, 132, 132 |
+| Historical Performance B5 = 2025 | Milk 1,975.74 M kg, WMP 1,304.78 M kg; +2.70%, -2.86% YoY |
+| Historical Performance B5 = 2024 | Milk 1,923.86 M kg, WMP 1,343.21 M kg; chart and monthly comparisons change |
+| 2025 variance | Net -38.43 M kg; gross decreases 77.72 M kg; top two share 67.08% |
+| Forecast Performance | One-month seasonal WAPE 3.16% milk and 12.42% WMP; 2026 WAPE 5.92% and 13.02% |
+| Planning Review | 39.08 M kg threshold; one flagged month, February 2024 |
+| Native PivotTables | Refresh with correct totals and test filters after unhiding supporting sheets |
+| Visual inspection | Legible chart axes and labels; no cropping; consistent formatting |
+| Save, close, reopen | Queries, formula links, charts and dropdown retained |
+
+The consolidated file passed package integrity, formula-cache and relationship checks. The 2024/2025 selector was tested in the calculation environment. The new charts have populated caches and valid internal data links. Desktop Excel open, refresh, chart rendering, filter interaction and save/reopen remain release acceptance tasks.
+
+The Executive Dashboard is the final presentation page, to be added after analytical acceptance. The intended release contains six visible tabs, without duplicate technical instructions. See [calculation reference](excel_calculations.md) and [additional planning review](planning_review.md).
+
+The complete workbook is not public until milk-source reuse terms are confirmed. Stats NZ exports may be shared with attribution; see [source terms and manifest](../data/README.md).
