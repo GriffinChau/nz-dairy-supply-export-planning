@@ -118,7 +118,7 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 | Year Review | Dropdown-driven annual and monthly comparison | SUMIFS, IFERROR, conditional formatting |
 | Forecast Review | Model comparison, WAPE, MAE, bias and coefficients | Excel formulas applying fixed regression coefficients estimated with NumPy |
 | Planning Exceptions and Outlook | Evidence-based review threshold and three-month retrospective outlook | Explicit thresholds and forecast origin |
-| Executive Dashboard | Formula-driven KPIs, monthly charts and source-match gate | [Dashboard build script](excel/BuildExecutiveDashboard.ts); desktop execution not yet verified |
+| Executive Dashboard | Formula-driven KPIs, monthly charts and source-match gate | [Native Excel dashboard setup](docs/excel_acceptance.md); desktop build and verification pending |
 
 **Refresh design:** original files -> MilkSupply and WMPExports -> MonthlyPlanning -> source match check -> audited Monthly Data snapshot -> analysis and recommendations. A changed snapshot requires reviewing model coefficients and rerunning evaluation. It must not silently overwrite the evaluated historical data.
 
@@ -142,4 +142,4 @@ The public repository contains documentation, charts, code and the attributed ex
 
 ## 8. Release status
 
-Core analysis, model evaluation, source reconciliation and three native Power Query connections are complete. The final Excel dashboard script and desktop acceptance procedure are available. Final desktop execution, refresh, slicer and visual checks remain outstanding before the workbook is described as release-ready.
+Core analysis, model evaluation, source reconciliation and three native Power Query connections are complete. The native Excel dashboard setup and desktop acceptance procedure are documented; no Office Scripts dependency. Dashboard build, refresh, slicer and visual checks remain outstanding before the workbook is described as release-ready.
