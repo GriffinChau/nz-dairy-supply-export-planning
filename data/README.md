@@ -14,3 +14,12 @@ All eleven unchanged annual national HS10 export CSVs are available in [data/raw
 Download the individual CSVs from the raw directory or download the repository ZIP. Preserve the original filenames and contents when reproducing the analysis.
 
 Milk production is sourced from [DCANZ](https://dcanz.com/resources/), NZX and DairyNZ. The original workbook, extracted milk records, joined dataset and Excel working file remain local pending confirmation of reuse rights. Download the original workbook independently for reproduction. The Stats NZ licence does not cover milk data. No synthetic inputs are used.
+
+## Processed data and outputs
+
+- [Processed WMP exports](processed/wmp_exports_cleaned.csv): 132 monthly records in the analysis-ready query format. The existing public extract preserves original field names for traceability.
+- [Forecast evaluation](outputs/forecast_evaluation.csv): 18 aggregate model scores from the saved workbook.
+- [2026 export performance](outputs/forecast_performance_2026.csv): seven additional export observations and their unchanged seasonal forecasts.
+- [Planning exceptions](outputs/planning_exceptions.csv): 24 test months and the fixed review threshold.
+
+See [processed data notes](processed/README.md) and [output definitions](outputs/README.md). Cleaned milk supply, the complete joined dataset and row-level supply-informed model inputs remain local. The original 735,118 export records are filtered before appending; no redundant all-product merged CSV is needed.

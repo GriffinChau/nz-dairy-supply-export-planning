@@ -1,0 +1,19 @@
+period,horizon_months,model,target_months,wape_pct,mae_million_kg,signed_bias_pct
+Validation,1,Seasonal,24,24.374904,26.728146,9.865369
+Validation,1,Export only,24,27.089734,29.705074,15.297149
+Validation,1,Supply informed,24,25.965457,28.472256,14.154363
+Validation,2,Seasonal,23,24.272290,26.558990,9.099620
+Validation,2,Export only,23,26.541285,29.041748,15.363299
+Validation,2,Supply informed,23,24.303169,26.592778,12.645955
+Validation,3,Seasonal,22,24.213260,26.395946,8.291759
+Validation,3,Export only,22,26.682387,29.087650,13.691796
+Validation,3,Supply informed,22,26.219099,28.582599,13.014509
+Test,1,Seasonal,24,12.421858,13.705426,1.149649
+Test,1,Export only,24,12.677958,13.987989,2.675690
+Test,1,Supply informed,24,13.414903,14.801082,4.036412
+Test,2,Seasonal,23,12.146834,13.245770,2.181751
+Test,2,Export only,23,11.847295,12.919132,3.860606
+Test,2,Supply informed,23,12.496296,13.626849,5.728817
+Test,3,Seasonal,22,10.627346,11.446056,4.539370
+Test,3,Export only,22,10.658815,11.479949,6.592902
+Test,3,Supply informed,22,11.779091,12.686529,7.894366

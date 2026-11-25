@@ -127,6 +127,20 @@ These are proposed actions for a planning review, not implemented company change
 
 No synthetic inputs. All selected export records reconcile domestic exports plus re-exports to total exports. The milk source and complete joined workbook remain local pending confirmation of reuse rights. The [original Stats NZ export datasets](data/raw/) contain all 11 unchanged annual national HS10 CSVs (735,118 records, 2015-2025). All 11 Git blob identifiers and file sizes were checked against the original source package. The [public Stats NZ extract](data/public/wmp_exports_2015_2025.csv) contains the 132 selected records; the [source manifest](data/raw_source_manifest.csv) records row counts, byte sizes and SHA-256 checksums. See [data reuse](data/README.md).
 
+### Data lineage and analytical outputs
+
+| Stage | Published file or location | Role |
+|---|---|---|
+| Original exports | [11 annual CSVs](data/raw/) | Unchanged source records |
+| Filtered source extract | [132 selected records](data/public/wmp_exports_2015_2025.csv) | Original field names and quantities |
+| Cleaned exports | [Analysis-ready monthly exports](data/processed/wmp_exports_cleaned.csv) | Standardised dates, fields and units |
+| Joined monthly dataset | [Power Query templates](powerquery/queries/) | Local milk and export merge; full dataset retained locally |
+| Model evaluation | [Forecast metrics](data/outputs/forecast_evaluation.csv) | 18 aggregate validation and test results |
+| Additional evaluation | [2026 export performance](data/outputs/forecast_performance_2026.csv) | Seven observed export months |
+| Exception review | [Planning exceptions](data/outputs/planning_exceptions.csv) | 24 test months, fixed threshold |
+
+[Output definitions](data/outputs/README.md) explain units, error signs and source lineage. The workbook uses the reconciled historical snapshot rather than automatically overwriting evaluated data.
+
 ## 5. Excel solution
 
 | Component | Function | Evidence |
@@ -144,6 +158,8 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 | Executive Dashboard | Shared year selector, annual KPIs, two monthly trend charts, forecast evidence and recommended actions | Implemented; desktop year selection and chart rendering verified from the saved workbook and PDF |
 
 **Refresh design:** original files -> MilkSupply and WMPExports -> MonthlyPlanning -> source match check -> audited Monthly Data snapshot -> analysis and recommendations. A changed snapshot requires reviewing model coefficients and rerunning evaluation. It must not silently overwrite the evaluated historical data.
+
+The intended [final workbook location](excel/README.md) is `excel/NZ_Dairy_Planning_Intelligence.xlsx`. The workbook is retained locally pending permission to redistribute the embedded milk data.
 
 ### Workbook navigation
 
