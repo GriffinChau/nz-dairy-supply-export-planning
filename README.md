@@ -140,11 +140,16 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 
 **Refresh design:** original files -> MilkSupply and WMPExports -> MonthlyPlanning -> source match check -> audited Monthly Data snapshot -> analysis and recommendations. A changed snapshot requires reviewing model coefficients and rerunning evaluation. It must not silently overwrite the evaluated historical data.
 
+### Workbook navigation
+
+The local compact workbook presents eight review tabs: Start Here, Year Review, Dairy Season Review, Variance Review, Forecast Review, 2026 Performance Check, Planning Exceptions and Planning Outlook. Supporting source tables, pivots, model calculations and quality checks remain in the same workbook as hidden sheets, available through Excel's Unhide command. Technical calculation and refresh notes are maintained in the repository. The Executive Dashboard is reserved for final analytical acceptance.
+
 ## 6. Reproduce and inspect the work
 
 - [Data preparation](docs/data_preparation.md) - source selection, transformation and quality checks.
 - [Excel analysis](docs/excel_review.md) - initial validation and Excel methods.
 - [Forecast evaluation](docs/forecast_evaluation.md) - training, validation, test design and model limitations.
+- [Excel calculation reference](docs/excel_calculations.md) - key formula locations, methods and interpretation.
 - [Desktop Excel acceptance and dashboard setup](docs/excel_acceptance.md) - native connection evidence, dashboard build and release checks.
 - [Native Power Query setup](powerquery/mac/README.md) - three-query templates based on the successful Mac session.
 
@@ -160,4 +165,4 @@ The public repository contains documentation, charts, code and the attributed ex
 
 ## 8. Release status
 
-Core analysis, model evaluation, three native Power Query connections and the additional planning review are implemented in local version 09. The existing workbook parts were preserved. Desktop refresh, PivotTable and interactivity checks, workbook visual acceptance and the final Executive Dashboard remain outstanding. No Office Scripts dependency.
+Core analysis, model evaluation, three native Power Query connections and the additional planning review are implemented in local version 10 (eight visible review tabs and 16 hidden support tabs). The existing workbook parts were preserved. Desktop refresh, PivotTable and interactivity checks, workbook visual acceptance and the final Executive Dashboard remain outstanding. No Office Scripts dependency.
