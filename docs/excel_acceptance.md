@@ -1,6 +1,6 @@
 # Excel release and acceptance
 
-The local version 12 repaired workbook has six visible review pages, including Executive Dashboard, and 23 hidden supporting sheets. It retains the three native Power Query connections, two native PivotTables and the audited 2015-2025 snapshot. The 2026 additional evaluation is separate. The six-page presentation layer consolidates historical and variance analysis, seasonality, forecast performance, planning decisions and source quality without deleting underlying evidence. The workbook remains local pending source reuse permissions.
+The validated workbook baseline has six visible review pages, including Executive Dashboard, and 23 hidden supporting sheets. It retains the three native Power Query connections, two native PivotTables and the audited 2015-2025 snapshot. The 2026 additional evaluation is separate. The six-page presentation layer consolidates historical and variance analysis, seasonality, forecast performance, planning decisions and source quality without deleting underlying evidence. The published [Excel workbook](../excel/NZ_Dairy_Planning_Intelligence.xlsx) is a subsequent user-uploaded copy; the validation below relates to the inspected baseline.
 
 ## Refresh and source control
 
@@ -55,8 +55,8 @@ The workbook opened successfully in Microsoft Excel, as reported during acceptan
 | Native PivotTable filter interaction | Not confirmed; two native objects retained |
 | Reopen returned saved copy | Not confirmed |
 
-The public summary graphic is a separate analytical illustration. The full workbook and desktop PDF are retained locally pending milk-source reuse permission.
+The public summary graphic is a separate analytical illustration. The full desktop PDF remains local. The uploaded workbook's embedded milk-source redistribution permission has not been independently confirmed.
 
 The Executive Dashboard is the opening presentation page. All six visible sheets have A3 landscape print areas fitted to one page each; the returned PDF confirms this layout. The analysis remains tied to the audited snapshot; source revisions require revalidation. See [calculation reference](excel_calculations.md) and [additional planning review](planning_review.md).
 
-The complete workbook is not public until milk-source reuse terms are confirmed. All eleven original Stats NZ annual export CSVs are published in [data/raw/](../data/raw/) and verified against the source package. See [source terms and manifest](../data/README.md).
+The workbook is available in the repository; see the [data reuse note](../data/README.md) for source permissions. All eleven original Stats NZ annual export CSVs are published in [data/raw/](../data/raw/) and verified against the source package. See [source terms and manifest](../data/README.md).

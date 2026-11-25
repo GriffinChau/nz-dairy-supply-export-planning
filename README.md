@@ -2,6 +2,8 @@
 
 **An Excel-based business analysis case study | New Zealand dairy sector | 2015-2025**
 
+[Download the Excel planning workbook](excel/NZ_Dairy_Planning_Intelligence.xlsx) | [Data sources](data/README.md) | [Technical documentation](docs/excel_acceptance.md)
+
 ## Executive summary
 
 New Zealand's dairy sector has pronounced seasonal milk collection patterns, but milk supply and export shipments do not necessarily move together. A planning team needs a dependable starting forecast, a clear way to monitor changes and a practical process for investigating significant deviations.
@@ -125,7 +127,7 @@ These are proposed actions for a planning review, not implemented company change
 | [Stats NZ overseas merchandise trade](https://www.stats.govt.nz/large-datasets/csv-files-for-download/overseas-merchandise-trade-datasets/) | 11 annual national HS10 exports files | Filter HS10 0402210019; use domestic exports, KGM, Final |
 | Joined monthly dataset | 132 months | Merge on month-start date; check duplicates, coverage and quantities |
 
-No synthetic inputs. All selected export records reconcile domestic exports plus re-exports to total exports. The milk source and complete joined workbook remain local pending confirmation of reuse rights. The [original Stats NZ export datasets](data/raw/) contain all 11 unchanged annual national HS10 CSVs (735,118 records, 2015-2025). All 11 Git blob identifiers and file sizes were checked against the original source package. The [public Stats NZ extract](data/public/wmp_exports_2015_2025.csv) contains the 132 selected records; the [source manifest](data/raw_source_manifest.csv) records row counts, byte sizes and SHA-256 checksums. See [data reuse](data/README.md).
+No synthetic inputs. All selected export records reconcile domestic exports plus re-exports to total exports. The original milk source is available from its provider and is not separately redistributed here. See the [data reuse note](data/README.md) for the workbook's embedded data. The [original Stats NZ export datasets](data/raw/) contain all 11 unchanged annual national HS10 CSVs (735,118 records, 2015-2025). All 11 Git blob identifiers and file sizes were checked against the original source package. The [public Stats NZ extract](data/public/wmp_exports_2015_2025.csv) contains the 132 selected records; the [source manifest](data/raw_source_manifest.csv) records row counts, byte sizes and SHA-256 checksums. See [data reuse](data/README.md).
 
 ### Data lineage and analytical outputs
 
@@ -134,7 +136,7 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 | Original exports | [11 annual CSVs](data/raw/) | Unchanged source records |
 | Filtered source extract | [132 selected records](data/public/wmp_exports_2015_2025.csv) | Original field names and quantities |
 | Cleaned exports | [Analysis-ready monthly exports](data/processed/wmp_exports_cleaned.csv) | Standardised dates, fields and units |
-| Joined monthly dataset | [Power Query templates](powerquery/queries/) | Local milk and export merge; full dataset retained locally |
+| Joined monthly dataset | [Power Query templates](powerquery/queries/) | Milk and export merge; embedded analytical dataset in the workbook |
 | Model evaluation | [Forecast metrics](data/outputs/forecast_evaluation.csv) | 18 aggregate validation and test results |
 | Additional evaluation | [2026 export performance](data/outputs/forecast_performance_2026.csv) | Seven observed export months |
 | Exception review | [Planning exceptions](data/outputs/planning_exceptions.csv) | 24 test months, fixed threshold |
@@ -145,7 +147,7 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 
 | Component | Function | Evidence |
 |---|---|---|
-| Power Query | Import, filter, append 11 CSVs, merge two sources | Three native queries saved in the local workbook after successful source and merge checks in Microsoft Excel |
+| Power Query | Import, filter, append 11 CSVs, merge two sources | Three native queries saved in the workbook after successful source and merge checks in Microsoft Excel |
 | Data lineage | Original, staging, processed and reconciliation views | 132 matched months; 1,320 joined output cells matched the audited snapshot within tolerance |
 | Excel Tables and PivotTables | Annual totals and calendar-month seasonality | Two native PivotTables; desktop refresh acceptance still pending |
 | Year Review | Dropdown-driven annual and monthly comparison | SUMIFS, IFERROR, conditional formatting |
@@ -159,11 +161,11 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 
 **Refresh design:** original files -> MilkSupply and WMPExports -> MonthlyPlanning -> source match check -> audited Monthly Data snapshot -> analysis and recommendations. A changed snapshot requires reviewing model coefficients and rerunning evaluation. It must not silently overwrite the evaluated historical data.
 
-The intended [final workbook location](excel/README.md) is `excel/NZ_Dairy_Planning_Intelligence.xlsx`. The workbook is retained locally pending permission to redistribute the embedded milk data.
+[Excel planning workbook](excel/NZ_Dairy_Planning_Intelligence.xlsx) - interactive review with six visible analytical pages. See the [workbook guide](excel/README.md) for setup and source-use notes.
 
 ### Workbook navigation
 
-The local workbook presents six visible review tabs. Executive Dashboard provides the shared year selector, annual KPIs, separate milk and WMP trend charts, fixed-period forecast evidence and recommended actions. Historical Performance combines annual metrics and monthly variance; Dairy Season Review presents separate seasonal heatmaps; Forecast Performance combines held-out model results and the additional 2026 check, including actual versus forecast exports; Planning Review prioritises the material exception and the dated outlook; Data & Quality shows source coverage and reconciliation. The detailed calculations, source tables, native queries and PivotTables remain in the same workbook as hidden supporting sheets. Each visible sheet has an explicit landscape print area. Technical notes are maintained in the repository.
+The workbook presents six visible review tabs. Executive Dashboard provides the shared year selector, annual KPIs, separate milk and WMP trend charts, fixed-period forecast evidence and recommended actions. Historical Performance combines annual metrics and monthly variance; Dairy Season Review presents separate seasonal heatmaps; Forecast Performance combines held-out model results and the additional 2026 check, including actual versus forecast exports; Planning Review prioritises the material exception and the dated outlook; Data & Quality shows source coverage and reconciliation. The detailed calculations, source tables, native queries and PivotTables remain in the same workbook as hidden supporting sheets. Each visible sheet has an explicit landscape print area. Technical notes are maintained in the repository.
 
 ## 6. Reproduce and inspect the work
 
@@ -174,7 +176,7 @@ The local workbook presents six visible review tabs. Executive Dashboard provide
 - [Desktop Excel acceptance and dashboard setup](docs/excel_acceptance.md) - native connection evidence, dashboard build and release checks.
 - [Native Power Query setup](powerquery/queries/README.md) - three-query templates for importing, validating and merging the source data.
 
-The public repository contains documentation, charts, code, all 11 original annual Stats NZ export CSVs and the attributed 132-row export extract. The milk workbook and complete joined workbook remain local pending confirmation of reuse rights. Download the milk source independently using the documented source link. This is an independent portfolio case study, not a commissioned client project.
+The repository contains the Excel planning workbook, documentation, charts, Power Query templates, all 11 original annual Stats NZ export CSVs and the processed export data and analytical outputs. Obtain the original milk source independently from the documented source link. This is an independent portfolio case study, not a commissioned client project.
 
 ## 7. Limitations
 
@@ -184,6 +186,5 @@ The public repository contains documentation, charts, code, all 11 original annu
 - The test covers a limited number of months. Different forecast horizons have different target counts.
 - No operational savings, causal relationships, stockouts, manufacturing capacity or forecast adoption are claimed.
 
-## 8. Release status
 
-Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The workbook was opened and saved in Microsoft Excel with 2024 selected. The saved workbook and six-page A3 landscape PDF confirm linked year selection, chart rendering, source reconciliation and print layout. The saved file contains 6,000 formula cells, no cached formula errors, three native query connections, two native PivotTables and eight charts. Completion of a fresh Refresh All operation, PivotTable filter interaction and a further reopen of the saved copy remain unconfirmed. The [public findings graphic](assets/planning-findings.svg) is available for review. The full workbook and its PDF remain local pending milk-source reuse permission. All 11 original Stats NZ annual export CSVs are published and verified against the source package. No additional source connections are needed.
+Workbook validation evidence and remaining refresh checks are documented in [Excel acceptance](docs/excel_acceptance.md).

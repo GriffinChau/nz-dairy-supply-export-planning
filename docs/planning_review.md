@@ -47,7 +47,7 @@ Keep the same-month-2025 seasonal baseline fixed. Evaluate additional public obs
 
 Negative bias indicates underforecasting (forecast minus actual). This short partial-year evaluation is retrospective, uses revised public data and does not establish future accuracy. Monitor bias monthly and investigate sustained underforecasting before adjusting the baseline.
 
-Source: DCANZ/NZX/DairyNZ original June 2026 milk workbook; Stats NZ Jan-Jul 2026 national export files. May-Jul export files use changed column names and formatted thousands separators; normalised for selection and validation. All seven selected export observations are Final, KGM, HS10 0402210019, with exact domestic plus re-export reconciliation. The milk workbook and full joined analysis remain local pending source reuse rights.
+Source: DCANZ/NZX/DairyNZ original June 2026 milk workbook; Stats NZ Jan-Jul 2026 national export files. May-Jul export files use changed column names and formatted thousands separators; normalised for selection and validation. All seven selected export observations are Final, KGM, HS10 0402210019, with exact domestic plus re-export reconciliation. The original milk source and standalone joined CSV are not distributed separately; see the [workbook source-use note](../data/README.md).
 
 ## Acceptance
 

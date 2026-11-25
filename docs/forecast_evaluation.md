@@ -34,7 +34,7 @@ The workbook retains model coefficients, monthly formulas linked to audited sour
 
 ## Workbook and quality checks
 
-The forecast evaluation was introduced in the local version 04 workbook. It contains the existing seven sheets and three new sheets: Forecast Review, Forecast Detail, Model Inputs. Start Here presents context, decision and limitations. All populated worksheet regions use Arial; chart text and series colours were restyled. Two native PivotTable parts are retained. Workbook ZIP integrity and formula error scan passed; desktop PivotTable refresh remains to be verified. Native Power Query connections have since been saved in the local version 08 workbook. Local data and workbook are not published pending source reuse permission.
+The forecast evaluation was introduced in the local version 04 workbook. It contains the existing seven sheets and three new sheets: Forecast Review, Forecast Detail, Model Inputs. Start Here presents context, decision and limitations. All populated worksheet regions use Arial; chart text and series colours were restyled. Two native PivotTable parts are retained. Workbook ZIP integrity and formula error scan passed; desktop PivotTable refresh remains to be verified. Native Power Query connections have since been saved in the local version 08 workbook. This describes the earlier development version; see the [current workbook](../excel/NZ_Dairy_Planning_Intelligence.xlsx) and [source-use note](../data/README.md).
 
 ## Planning application and limitations
 

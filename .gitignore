@@ -17,6 +17,7 @@ data/processed/*
 !data/processed/README.md
 !data/processed/wmp_exports_cleaned.csv
 excel/*.xlsx
+!excel/NZ_Dairy_Planning_Intelligence.xlsx
 file_manifest.csv
 *.zip
 ~$*

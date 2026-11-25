@@ -17,7 +17,7 @@ WAPE expresses total absolute forecast error as a share of actual volume. MAE is
 
 ## Workbook
 
-The local file `excel/03_dairy_excel_analysis.xlsx` contains a 132-row monthly source table, two native PivotTables (average by calendar month and sum by year), ordinary charts, data quality checks, year-on-year comparisons, and formula-based forecast validation. Use the Year report filter on Seasonality. The PivotTables contain pivot definitions and caches; desktop Excel interaction and refresh have not been tested here. The charts are ordinary charts, not native PivotCharts; no slicer is included. The workbook remains local until source reuse rights are confirmed.
+The local file `excel/03_dairy_excel_analysis.xlsx` contains a 132-row monthly source table, two native PivotTables (average by calendar month and sum by year), ordinary charts, data quality checks, year-on-year comparisons, and formula-based forecast validation. Use the Year report filter on Seasonality. The PivotTables contain pivot definitions and caches; desktop Excel interaction and refresh have not been tested here. The charts are ordinary charts, not native PivotCharts; no slicer is included. This describes an earlier local analysis version. See the [published workbook](../excel/NZ_Dairy_Planning_Intelligence.xlsx) and [source-use note](../data/README.md) for the current deliverable.
 
 ## Power Query setup in Excel
 

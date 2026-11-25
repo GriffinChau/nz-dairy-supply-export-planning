@@ -13,7 +13,7 @@ All eleven unchanged annual national HS10 export CSVs are available in [data/raw
 
 Download the individual CSVs from the raw directory or download the repository ZIP. Preserve the original filenames and contents when reproducing the analysis.
 
-Milk production is sourced from [DCANZ](https://dcanz.com/resources/), NZX and DairyNZ. The original workbook, extracted milk records, joined dataset and Excel working file remain local pending confirmation of reuse rights. Download the original workbook independently for reproduction. The Stats NZ licence does not cover milk data. No synthetic inputs are used.
+Milk production is sourced from [DCANZ](https://dcanz.com/resources/), NZX and DairyNZ. The original milk source workbook is not distributed separately. The published [Excel planning workbook](../excel/NZ_Dairy_Planning_Intelligence.xlsx) may contain embedded milk records and joined data; redistribution permission for the milk source has not been independently confirmed. Download the original workbook independently for reproduction. The Stats NZ licence does not cover milk data. No synthetic inputs are used.
 
 ## Processed data and outputs
 
@@ -22,4 +22,4 @@ Milk production is sourced from [DCANZ](https://dcanz.com/resources/), NZX and D
 - [2026 export performance](outputs/forecast_performance_2026.csv): seven additional export observations and their unchanged seasonal forecasts.
 - [Planning exceptions](outputs/planning_exceptions.csv): 24 test months and the fixed review threshold.
 
-See [processed data notes](processed/README.md) and [output definitions](outputs/README.md). Cleaned milk supply, the complete joined dataset and row-level supply-informed model inputs remain local. The original 735,118 export records are filtered before appending; no redundant all-product merged CSV is needed.
+See [processed data notes](processed/README.md) and [output definitions](outputs/README.md). Cleaned milk supply, the complete joined dataset and row-level supply-informed model inputs are not provided as separate CSV downloads. The original 735,118 export records are filtered before appending; no redundant all-product merged CSV is needed.

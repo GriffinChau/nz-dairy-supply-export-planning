@@ -4,4 +4,4 @@
 
 Source: Stats NZ, CC BY 4.0. Quantities are unchanged. See [data sources and reuse](../README.md).
 
-The milk supply and joined monthly dataset are generated locally by the [Power Query templates](../../powerquery/queries/README.md). They are not published pending confirmation of milk-source redistribution permission. The fixed analysis dataset is the reconciled Monthly Data snapshot in the workbook, not an automatically overwritten live table.
+The milk supply and joined monthly dataset are generated locally by the [Power Query templates](../../powerquery/queries/README.md). They are not supplied as separate CSV downloads; see the [workbook and source-use note](../../excel/README.md) for embedded data. The fixed analysis dataset is the reconciled Monthly Data snapshot in the workbook, not an automatically overwritten live table.
