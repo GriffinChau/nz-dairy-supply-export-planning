@@ -136,14 +136,14 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 | Refresh Control | Compare refreshed query output against the evaluated snapshot | 132/132 rows match; mismatch test passed |
 | Dairy Season and Variance Review | June-May heatmaps and monthly contribution analysis | Complete seasons only; year selection 2016-2025 |
 | 2026 Performance Check | Additional frozen-baseline evaluation | Partial-year WAPE and bias, no model tuning |
-| Consolidated review pages | One year selector, linked review metrics and two additional ordinary Excel charts | Five visible analytical pages; desktop chart and selector behaviour still requires acceptance |
-| Executive Dashboard | Formula-driven KPIs, monthly charts and source-match gate | [Native Excel dashboard setup](docs/excel_acceptance.md); desktop build and verification pending |
+| Consolidated review pages | Linked review metrics, variance chart and 2026 actual-versus-forecast chart | Five analytical pages with a shared year selection from the executive overview |
+| Executive Dashboard | Shared year selector, annual KPIs, two monthly trend charts, forecast evidence and recommended actions | Implemented in the local workbook; desktop acceptance pending |
 
 **Refresh design:** original files -> MilkSupply and WMPExports -> MonthlyPlanning -> source match check -> audited Monthly Data snapshot -> analysis and recommendations. A changed snapshot requires reviewing model coefficients and rerunning evaluation. It must not silently overwrite the evaluated historical data.
 
 ### Workbook navigation
 
-The consolidated local workbook presents five review tabs. Historical Performance combines annual metrics and monthly variance under a single year selector; Dairy Season Review presents separate seasonal heatmaps; Forecast Performance combines held-out model results and the additional 2026 check; Planning Review combines the dated outlook and historical exceptions; Data & Quality shows source coverage and the reconciliation gate. The detailed calculations, data sources, native queries and PivotTables remain in the same workbook as hidden supporting sheets. Technical notes are maintained in the repository. The Executive Dashboard will be added after analytical acceptance.
+The local workbook presents six visible review tabs. Executive Dashboard provides the shared year selector, annual KPIs, separate milk and WMP trend charts, fixed-period forecast evidence and recommended actions. Historical Performance combines annual metrics and monthly variance; Dairy Season Review presents separate seasonal heatmaps; Forecast Performance combines held-out model results and the additional 2026 check, including actual versus forecast exports; Planning Review prioritises the material exception and the dated outlook; Data & Quality shows source coverage and reconciliation. The detailed calculations, source tables, native queries and PivotTables remain in the same workbook as hidden supporting sheets. Each visible sheet has an explicit landscape print area. Technical notes are maintained in the repository.
 
 ## 6. Reproduce and inspect the work
 
@@ -166,4 +166,4 @@ The public repository contains documentation, charts, code and the attributed ex
 
 ## 8. Release status
 
-Core analysis, model evaluation, three native Power Query connections and the additional planning review are implemented in local version 11 (five visible review tabs and 23 hidden support tabs). The existing workbook parts were preserved. Desktop refresh, PivotTable and interactivity checks, workbook visual acceptance and the final Executive Dashboard remain outstanding. No Office Scripts dependency.
+Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The workbook passed package and formula-cache checks. Final desktop refresh, selector, PivotTable, chart and print checks remain outstanding. No additional source connections are needed.
