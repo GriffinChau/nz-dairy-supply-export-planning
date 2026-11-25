@@ -1,6 +1,6 @@
 # Excel release and acceptance
 
-The local version 12 workbook has six visible review pages, including Executive Dashboard, and 23 hidden supporting sheets. It retains the three native Power Query connections, two native PivotTables and the audited 2015-2025 snapshot. The 2026 additional evaluation is separate. The six-page presentation layer consolidates historical and variance analysis, seasonality, forecast performance, planning decisions and source quality without deleting underlying evidence. The workbook remains local pending source reuse permissions.
+The local version 12 repaired workbook has six visible review pages, including Executive Dashboard, and 23 hidden supporting sheets. It retains the three native Power Query connections, two native PivotTables and the audited 2015-2025 snapshot. The 2026 additional evaluation is separate. The six-page presentation layer consolidates historical and variance analysis, seasonality, forecast performance, planning decisions and source quality without deleting underlying evidence. The workbook remains local pending source reuse permissions.
 
 ## Refresh and source control
 
@@ -39,7 +39,7 @@ All six pages use existing evidence and formula links. The dashboard and review 
 | Visual inspection | Legible chart axes and labels; no cropping; consistent formatting |
 | Save, close, reopen | Queries, formula links, charts and dropdown retained |
 
-The version 12 file passed package integrity, formula-cache and relationship checks. Dashboard calculations for 2024 and 2025 were tested in the calculation environment. Three native query connections and both PivotTables are preserved, together with all 5,943 prior formulas. The new charts have populated caches and internal data links. Desktop Excel open, refresh, linked selector behaviour, chart rendering, filter interaction and save/reopen remain release acceptance tasks.
+The version 12 file passed package integrity, formula-cache and relationship checks. Dashboard calculations for 2024 and 2025 were tested in the calculation environment. Three native query connections and both PivotTables are preserved, together with all 5,943 prior formulas. The new charts have populated caches and internal data links. The repaired file opened successfully in Excel for Mac, as reported by the user. Desktop refresh, linked selector behaviour, chart rendering, PivotTable filters, print and save/reopen remain release acceptance tasks. The public summary graphic is a separate analytical illustration, not a claim that desktop acceptance is complete.
 
 The Executive Dashboard is the opening presentation page. All six visible sheets have A3 landscape print areas fitted to one page each; verify the result in Print Preview. The analysis remains tied to the audited snapshot; source revisions require revalidation. See [calculation reference](excel_calculations.md) and [additional planning review](planning_review.md).
 

@@ -19,6 +19,10 @@ This independent case study turns publicly reported monthly milk collection and 
 
 **Decision:** use last year's same-month volume as the reference export forecast. Monitor supply separately and investigate material shipment deviations before overriding the forecast.
 
+![Planning findings summary - domestic WMP export variance and forecast accuracy](assets/planning-findings.svg)
+
+*Public summary graphic of the analytical results, not a screenshot of the Excel workbook.*
+
 ## 1. Business problem and scope
 
 **Question:** Can available milk supply observations improve a one- to three-month outlook for New Zealand domestic WMP exports compared with using export history alone?
@@ -166,4 +170,4 @@ The public repository contains documentation, charts, code and the attributed ex
 
 ## 8. Release status
 
-Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The workbook passed package and formula-cache checks. Final desktop refresh, selector, PivotTable, chart and print checks remain outstanding. No additional source connections are needed.
+Core analysis and the executive presentation are implemented in local version 12 (six visible review tabs, 23 hidden support tabs). Three native queries and two native PivotTables are preserved. The repaired version passed package and formula-cache checks and opened in Excel for Mac according to the user. Desktop refresh, selector, PivotTable, chart, print and save/reopen checks remain outstanding. The [public findings graphic](assets/planning-findings.svg) is available for review. No additional source connections are needed.
