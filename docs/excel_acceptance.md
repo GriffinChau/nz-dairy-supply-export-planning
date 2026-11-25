@@ -39,8 +39,24 @@ All six pages use existing evidence and formula links. The dashboard and review 
 | Visual inspection | Legible chart axes and labels; no cropping; consistent formatting |
 | Save, close, reopen | Queries, formula links, charts and dropdown retained |
 
-The version 12 file passed package integrity, formula-cache and relationship checks. Dashboard calculations for 2024 and 2025 were tested in the calculation environment. Three native query connections and both PivotTables are preserved, together with all 5,943 prior formulas. The new charts have populated caches and internal data links. The repaired file opened successfully in Excel for Mac, as reported by the user. Desktop refresh, linked selector behaviour, chart rendering, PivotTable filters, print and save/reopen remain release acceptance tasks. The public summary graphic is a separate analytical illustration, not a claim that desktop acceptance is complete.
+## Desktop evidence received on 25 November 2026
 
-The Executive Dashboard is the opening presentation page. All six visible sheets have A3 landscape print areas fitted to one page each; verify the result in Print Preview. The analysis remains tied to the audited snapshot; source revisions require revalidation. See [calculation reference](excel_calculations.md) and [additional planning review](planning_review.md).
+The repaired workbook opened successfully in Excel for Mac, as reported by the user. The returned desktop-saved workbook and exported PDF were inspected without editing the original. The saved file retains all 6,000 formula-cell locations (Excel reorganised shared formulas), three query connections, three query tables, two native PivotTables and eight charts. No cached formula errors were found. All 1,320 values in the ten-column monthly query output match the audited snapshot within the documented tolerances. The four historical source and query sheets retain their prior saved cell values.
+
+| Acceptance item | Evidence status |
+|---|---|
+| Open repaired workbook | Passed, user reported |
+| Save from Excel | Passed, returned workbook inspected |
+| Linked 2024 selection | Passed, both review pages show 2024; milk 1,923.86 M kg, exports 1,343.21 M kg; YoY +2.09% and +0.60% |
+| Chart rendering | Passed for visible charts in PDF; saved trend chart caches reflect 2024 and prior year |
+| Source reconciliation | Passed, 132 months and 1,320 matching cells |
+| Print layout | Passed, six A3 landscape PDF pages with no split tables |
+| Fresh Refresh All completion | Not independently confirmed; unchanged output alone cannot prove refresh succeeded |
+| Native PivotTable filter interaction | Not confirmed; two native objects retained |
+| Reopen returned saved copy | Not confirmed |
+
+The public summary graphic is a separate analytical illustration. The full workbook and desktop PDF are retained locally pending milk-source reuse permission.
+
+The Executive Dashboard is the opening presentation page. All six visible sheets have A3 landscape print areas fitted to one page each; the returned PDF confirms this layout. The analysis remains tied to the audited snapshot; source revisions require revalidation. See [calculation reference](excel_calculations.md) and [additional planning review](planning_review.md).
 
 The complete workbook is not public until milk-source reuse terms are confirmed. All eleven original Stats NZ annual export CSVs are published in [data/raw/](../data/raw/) and verified against the source package. See [source terms and manifest](../data/README.md).
