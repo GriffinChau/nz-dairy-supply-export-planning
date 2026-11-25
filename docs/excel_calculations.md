@@ -6,6 +6,8 @@ The calculations below refer to the local audited workbook. This reference docum
 |---|---|---|
 | Milk Source Extract C2 | Original thousand kg multiplied by 1,000 | Standardise milk units |
 | Monthly Data I2 | Milk solids kg divided by 1,000,000 | Express volumes in million kg |
+| Historical Overview B8:B18, F8:F18 | SUMIFS on audited Monthly Data by year | Full historical annual milk and WMP volumes, 2015-2025 |
+| Historical Overview D9:D18, H9:H18, J9:J18 | Current/prior - 1; current minus prior export volume | Annual YoY growth and volume variance; 2015 has no prior year |
 | Historical Performance B14 | SUMIFS by year and month number | Retrieve the selected January milk volume |
 | Historical Performance D14 | Current month / prior-year month - 1 | Measure year-on-year change; check data completeness before interpreting zero from IFERROR |
 | Supply and Exports I8 | CORREL on aligned historical growth series | Explore lagged association on training observations, not causation |

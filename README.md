@@ -1,6 +1,6 @@
 # NZ Dairy Supply & Export Planning Intelligence
 
-**An Excel-based business analysis case study | New Zealand dairy sector | 2015-2025**
+**An Excel-based business analysis case study | New Zealand dairy sector | 2015-2025 historical review**
 
 [Download the Excel planning workbook](excel/NZ_Dairy_Planning_Intelligence.xlsx) | [Data sources](data/README.md) | [Technical documentation](docs/excel_acceptance.md)
 
@@ -19,9 +19,9 @@ This independent Excel-based case study examines whether earlier national milk s
 
 **Decision:** retain the same-month-last-year export forecast as the reference baseline.
 
-![Planning findings summary - domestic WMP export variance and forecast accuracy](assets/planning-findings.svg)
+![Historical overview, 2025 export variance and forecast performance](assets/planning-findings.svg)
 
-*Public summary graphic of the analytical results, not a screenshot of the Excel workbook.*
+*Analytical summary using the workbook's historical annual totals and published export records; not a workbook screenshot.*
 
 ## 1. Business problem and scope
 
@@ -83,11 +83,19 @@ All inputs are observed public statistics. The 11 original export CSVs contain 7
 
 ## 4. Key findings
 
+### Historical performance overview (2015-2025)
+
+The Historical Overview worksheet compares all eleven calendar years, with separate milk solids and domestic WMP volumes, annual YoY growth and export variance. The year selector on the Executive Dashboard and Historical Performance covers 2016-2025; 2015 is the reference year because 2014 is outside the dataset.
+
+- National milk supply rose from 1,861.58 million kg milk solids in 2015 to 1,975.74 million kg in 2025, the highest annual value in the historical window.
+- Selected domestic WMP exports peaked at 1,594.85 million kg in 2021, then fell 18.71% to 1,296.48 million kg in 2022. These are observed changes, not evidence of specific causes.
+- The 2025 versus 2024 comparison remains the latest complete-year deep dive; 2026 is a separate partial-year forecast check.
+
 ### 01. Seasonal supply and export patterns
 
 Milk collection peaks in October (average 260.68 million kg milk solids) and reaches its low in June (18.75 million kg), with the peak approximately 13.9 times the low. The selected domestic WMP export series peaks in December and reaches its low in August. The two-month difference between average peaks is descriptive, not a demonstrated production-to-shipment lag.
 
-![Monthly WMP export seasonality](assets/wmp-seasonality.svg)
+![Monthly WMP export seasonality and dairy season comparison](assets/wmp-seasonality.svg)
 
 The complete 2024/25 dairy season also shows divergence: milk supply rose 2.97% compared with 2023/24, while selected domestic WMP exports fell 6.81%. The June-May view complements the calendar-year review.
 
@@ -111,7 +119,7 @@ One-month-ahead test error (WAPE, lower is better):
 | Milk supply | 47.02% | **3.16%** |
 | Domestic WMP exports | 30.66% | **12.42%** |
 
-![Forecast model comparison](assets/forecast-comparison.svg)
+![Forecast model comparison, planning exception and 2026 check](assets/forecast-comparison.svg)
 
 | Horizon | Test months | Seasonal | Export only | Supply informed |
 |---|---:|---:|---:|---:|
@@ -173,16 +181,17 @@ The evaluated historical snapshot is retained separately from live query output.
 
 ### Workbook navigation
 
-The workbook contains six visible review tabs, organised around planning decisions:
+The workbook contains seven visible review tabs, organised around planning decisions:
 
 - **Executive Dashboard** - Annual KPIs, shared year selector, separate milk and WMP trend charts, forecast evidence and recommended actions.
 - **Historical Performance** - Year-on-year performance, monthly volume comparisons and export variance contributions.
+- **Historical Overview** - Full 2015-2025 annual comparison, YoY growth, export variance and separate long-term trend charts.
 - **Dairy Season Review** - June-May heatmaps and complete-season comparisons for milk supply and exports.
 - **Forecast Performance** - Model comparisons across forecast horizons, error metrics and the additional 2026 actual-versus-forecast review.
 - **Planning Review** - Priority shipment deviations, review threshold, retrospective three-month outlook and recommended next steps.
 - **Data & Quality** - Source coverage, reconciliation checks and agreement between query results and the audited historical snapshot.
 
-Supporting source tables, calculations, native Power Query connections and PivotTables remain in the same workbook. Each review page has a landscape print area. See the [workbook guide](excel/README.md) for setup.
+Supporting source tables, calculations, native Power Query connections and PivotTables remain in the same workbook. The original six review pages have verified landscape print layouts; the added Historical Overview has a defined print layout. See the [workbook guide](excel/README.md) for setup.
 
 ## 7. Project resources
 
