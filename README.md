@@ -36,7 +36,30 @@ The intended users are planning, supply chain and operations analysts reviewing 
 | H1: Seasonality improves the forecast | Seasonal baseline vs latest-available-month forecast | Supported in the one-month held-out comparison |
 | H2: Earlier milk supply improves WMP forecasting | Comparable export-only and supply-informed models, 1-3 months | Not supported in these tests |
 
-## 2. Key insights
+## 2. Project workflow & methodology
+
+| Step | Work performed | Output |
+|---|---|---|
+| 01. Define the business problem | Establish the planning question, research scope and two forecasting hypotheses. | Clear analytical objectives |
+| 02. Collect and assess source data | Review national milk production statistics and 735,118 export records from 11 annual CSVs. Select the relevant WMP product code. | Documented source files and selection criteria |
+| 03. Clean, transform and merge | Use Power Query to filter exports, standardise dates and units, append annual files and join milk supply with exports by month. | 132 matched monthly records for 2015-2025 |
+| 04. Validate and explore | Check completeness, duplicates and quantity reconciliation. Analyse calendar-year trends, dairy seasons, monthly variance and lagged relationships using the training data for the latter. | Audited dataset and historical planning insights |
+| 05. Build and evaluate forecasts | Compare simple baselines and matched export-only and supply-informed regression models across one- to three-month horizons. Estimate fixed regression coefficients with Python/NumPy and apply them in Excel. | Model comparison using WAPE, MAE and signed bias |
+| 06. Translate results into planning actions | Select the baseline on validation results, evaluate it on the test period, screen significant deviations and check unchanged seasonal forecasts against available 2026 actuals. | Forecast outlook, exception priorities and recommendations |
+| 07. Build the Excel reporting solution | Consolidate the analysis into six interactive review pages with a shared year selector, charts, heatmaps and source reconciliation controls. | Executive Dashboard and supporting planning workbook |
+
+### Forecast evaluation design
+
+| Period | Purpose |
+|---|---|
+| 2015-2021 | Historical training window, subject to lag and release-delay requirements |
+| 2022-2023 | Validation and model selection; establish the exception threshold |
+| 2024-2025 | Held-out model evaluation, using coefficients refitted on available data through November 2023 |
+| 2026 (partial year) | Additional retrospective check of the unchanged seasonal baseline; no model tuning |
+
+Models use a common assumed one-month publication delay and identical target months within each horizon. See [forecast methodology](docs/forecast_evaluation.md) for the exact forecast origins, fitting windows and limitations.
+
+## 3. Key insights
 
 ### 01 | Seasonal supply and export patterns are different
 
@@ -107,7 +130,7 @@ The complete 2024/25 dairy season also shows divergence: milk supply rose 2.97% 
 
 The unchanged seasonal baseline underforecast both series over these partial-year periods. Monitor bias and investigate sustained deviations rather than automatically overriding the forecast. No 2026 observations were used to select or fit the original baseline. See [additional planning review](docs/planning_review.md).
 
-## 3. Recommendations and monthly review process
+## 4. Recommendations and monthly review process
 
 | Recommended action | Proposed owner | Timing | Evidence to review |
 |---|---|---|---|
@@ -119,7 +142,7 @@ The unchanged seasonal baseline underforecast both series over these partial-yea
 
 These are proposed actions for a planning review, not implemented company changes or verified financial benefits.
 
-## 4. Data foundation and quality
+## 5. Data foundation and quality
 
 | Source | Scope | Treatment |
 |---|---|---|
@@ -143,7 +166,7 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 
 [Output definitions](data/outputs/README.md) explain units, error signs and source lineage. The workbook uses the reconciled historical snapshot rather than automatically overwriting evaluated data.
 
-## 5. Excel solution
+## 6. Excel solution
 
 | Component | Function | Evidence |
 |---|---|---|
@@ -165,9 +188,18 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 
 ### Workbook navigation
 
-The workbook presents six visible review tabs. Executive Dashboard provides the shared year selector, annual KPIs, separate milk and WMP trend charts, fixed-period forecast evidence and recommended actions. Historical Performance combines annual metrics and monthly variance; Dairy Season Review presents separate seasonal heatmaps; Forecast Performance combines held-out model results and the additional 2026 check, including actual versus forecast exports; Planning Review prioritises the material exception and the dated outlook; Data & Quality shows source coverage and reconciliation. The detailed calculations, source tables, native queries and PivotTables remain in the same workbook as hidden supporting sheets. Each visible sheet has an explicit landscape print area. Technical notes are maintained in the repository.
+The workbook contains six visible review tabs, organised around planning decisions:
 
-## 6. Reproduce and inspect the work
+- **Executive Dashboard** - Annual KPIs, shared year selector, separate milk and WMP trend charts, forecast evidence and recommended actions.
+- **Historical Performance** - Year-on-year performance, monthly volume comparisons and export variance contributions.
+- **Dairy Season Review** - June-May heatmaps and complete-season comparisons for milk supply and exports.
+- **Forecast Performance** - Model comparisons across forecast horizons, error metrics and the additional 2026 actual-versus-forecast review.
+- **Planning Review** - Priority shipment deviations, review threshold, retrospective three-month outlook and recommended next steps.
+- **Data & Quality** - Source coverage, reconciliation checks and agreement between query results and the audited historical snapshot.
+
+Supporting source tables, calculations, native Power Query connections and PivotTables remain in the same workbook. Each review page has a landscape print area. Technical setup and calculation details are documented separately.
+
+## 7. Reproduce and inspect the work
 
 - [Data preparation](docs/data_preparation.md) - source selection, transformation and quality checks.
 - [Excel analysis](docs/excel_review.md) - initial validation and Excel methods.
@@ -178,7 +210,7 @@ The workbook presents six visible review tabs. Executive Dashboard provides the 
 
 The repository contains the Excel planning workbook, documentation, charts, Power Query templates, all 11 original annual Stats NZ export CSVs and the processed export data and analytical outputs. Obtain the original milk source independently from the documented source link. This is an independent portfolio case study, not a commissioned client project.
 
-## 7. Limitations
+## 8. Limitations
 
 - Exports are realised shipments, not unconstrained demand or customer orders. Milk solids and WMP have different physical meanings and cannot be subtracted to calculate an inventory gap.
 - HS10 0402210019 is a narrowly defined WMP category, not all dairy exports.
