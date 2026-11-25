@@ -8,11 +8,24 @@ Save a local copy of the master workbook before changing it. Do not delete Month
 
 Use Data > Refresh All. Wait for all queries to finish. The native connections have been loaded and saved, but a full post-save refresh is not independently verified. On Mac, the original multi-source script initially returned a gateway error; separate MilkSupply and WMPExports queries with explicit source paths and a third merge query succeeded. If files move, update the literal paths in the source queries using Advanced Editor. See [three-query reproduction templates](../powerquery/mac/README.md).
 
-## 2. Create the dashboard in Excel
+## 2. Create the dashboard using native Excel features
 
-If Automate > New Script is available in your Microsoft 365 installation, open it, replace the default script with [BuildExecutiveDashboard.ts](../excel/BuildExecutiveDashboard.ts), and run on the backup copy. Office Scripts availability depends on the licence and settings. The script is prepared, not yet executed in desktop Excel. It creates an Executive Dashboard tab, review-year dropdown, four KPI cards, two ordinary formula-driven line charts, model comparison table and source-match warning. It formats the three loaded query sheets in Arial. It does not change raw data, coefficients, Power Query definitions or the existing two PivotTables.
+Office Scripts did not load in the user's Excel for Mac session. It is not required for this project. The manual route is the current release procedure; the experimental script is retained for reference only, not a verified deliverable.
 
-If Automate is unavailable, retain Year Review and use Insert > Chart to create line charts from its monthly current/prior-year values. Set chart placement and colours manually. A dashboard year selection should update the KPI and monthly charts together. Use the same font and numeric formatting across the new charts.
+On a backup copy of the saved master workbook, duplicate Year Review (Move or Copy > Create a copy), rename the copy Executive Dashboard and move it to the first tab. Preserve the original sheet. The existing B5 year selector and four KPI formulas already work from the audited Monthly Data snapshot. Confirm that changing B5 between 2024 and 2025 updates the copied sheet.
+
+- Milk supply chart: select A13:C25 on Executive Dashboard and use Insert > Line > 2-D Line. The two series are current-year and prior-year milk supply. Move the chart to the right of the existing review table.
+- Export chart: select A13:A25, then hold Command and select E13:F25. Insert a 2-D Line chart. Confirm the horizontal axis shows Jan-Dec and there are two series, not the YoY percentage or status columns. Move this chart below the first.
+- Use Arial, navy headings, teal current-year series and slate prior-year series. Label each chart in million kg, keeping milk solids and powder distinct. Hide gridlines and check readability.
+- Add a source-match formula in a blank row below the review, comparing refreshed MonthlyPlanning A2:H133 against audited Monthly Data A2:H133. Check 132 rows, unique dates via the validated query, matching dimensions, exact export quantities and milk tolerance of 0.001 kg. This is a comparison, not an automatic overwrite. Use the following formula in A34 (after verifying the cell is empty):
+
+```excel
+=IFERROR(IF(AND(COUNTA(MonthlyPlanning!A:A)=133,COUNT(MonthlyPlanning!A2:A133)=132,COUNT(MonthlyPlanning!E2:H133)=528,SUMPRODUCT(--(MonthlyPlanning!A2:D133<>'Monthly Data'!A2:D133))=0,SUMPRODUCT(--(ABS(MonthlyPlanning!E2:E133-'Monthly Data'!E2:E133)>0.001))=0,SUMPRODUCT(--(MonthlyPlanning!F2:H133<>'Monthly Data'!F2:H133))=0),"SOURCE MATCH","REVIEW REQUIRED"),"REVIEW REQUIRED")
+```
+
+The formula is prepared from the verified workbook structure; the desktop result still needs testing. A match means the query output agrees with the snapshot, not proof that the last refresh succeeded. Confirm refresh status separately. Do not overwrite the snapshot if a check fails.
+
+These dashboard charts are ordinary formula-driven charts, not native PivotCharts. The dashboard build and formatting remain to be checked on desktop Excel. No automation add-in, macro or Office Scripts dependency is required.
 
 ## 3. Native interactivity
 
