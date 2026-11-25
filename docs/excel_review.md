@@ -26,7 +26,7 @@ The local file `excel/03_dairy_excel_analysis.xlsx` contains a 132-row monthly s
 3. Name the query MonthlyPlanningQuery. Load to a new worksheet as an Excel Table. Check 132 rows, January 2015 to December 2025, and compare the 2024/2025 totals with the Annual Review sheet.
 4. To update the supplied fixed-window workbook after verifying the query, copy the eight source columns A:H from the query table as values over the existing Monthly Data rows A2:H133, retaining the I:J formulas. Refresh All and verify both PivotTables. If the period or source dimensions change, redesign the fixed formula ranges and the Seasonality pivot source first. Do not append new rows without revising the evaluation split.
 
-The M script is supplied separately, not embedded as an active connection. It has been checked against source headers but not run in the Excel Power Query engine. The first refresh is an acceptance check, not a completed step.
+This section describes the initial prototype. Version 08 now contains three saved native Power Query connections built and previewed in Excel for Mac. Use [the current three-query templates](../powerquery/mac/README.md) and [desktop acceptance](excel_acceptance.md) instead of copying the historical query output over the audited snapshot.
 
 ## Method and next step
 

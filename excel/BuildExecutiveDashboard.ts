@@ -76,6 +76,7 @@ function main(workbook: ExcelScript.Workbook) {
   function formatChart(chart: ExcelScript.Chart, title: string, start: string, end: string) {
     chart.setPosition(start,end);
     chart.getTitle().setText(title);
+    chart.getFormat().getFont().setName("Arial");
     chart.getTitle().getFormat().getFont().setName("Arial");
     chart.getLegend().setPosition(ExcelScript.ChartLegendPosition.bottom);
     const series=chart.getSeries();
@@ -103,6 +104,8 @@ function main(workbook: ExcelScript.Workbook) {
   dash.getRange("A42:L42").merge(false);
   dash.getRange("A42").setValue("Source: DCANZ / NZX / DairyNZ and Stats NZ. Forecasts are retrospective; no causal or inventory claims.");
   dash.getRange("A42:L42").getFormat().getFont().setColor(slate);
+  dash.getRange("A42:L42").getFormat().setWrapText(true);
+  dash.getRange("A42:L42").getFormat().setRowHeight(30);
   // Format the three loaded query sheets without changing cells or connection definitions.
   for (const name of ["MilkSupply","WMPExports","MonthlyPlanning"]) {
     const s=workbook.getWorksheet(name);

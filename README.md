@@ -128,7 +128,7 @@ No synthetic inputs. All selected export records reconcile domestic exports plus
 - [Excel analysis](docs/excel_review.md) - initial validation and Excel methods.
 - [Forecast evaluation](docs/forecast_evaluation.md) - training, validation, test design and model limitations.
 - [Desktop Excel acceptance and dashboard setup](docs/excel_acceptance.md) - native connection evidence, dashboard build and release checks.
-- [Power Query reference script](powerquery/MonthlyPlanning.m) - original one-query reference; Mac required separate queries and fixed paths.
+- [Native Power Query setup](powerquery/mac/README.md) - three-query templates based on the successful Mac session.
 
 The public repository contains documentation, charts, code and the attributed export extract. It does not contain the complete raw exports yet or the restricted milk workbook. Download source data independently using the documented links. This is an independent portfolio case study, not a commissioned client project.
 

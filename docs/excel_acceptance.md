@@ -6,7 +6,7 @@ The current master is the user-saved version 08 workbook with three native Power
 
 Save a local copy of the master workbook before changing it. Do not delete Monthly Data or overwrite the evaluated snapshot. Avoid third-party XLSX round-trips that can strip the Power Query mashup.
 
-Use Data > Refresh All. Wait for all queries to finish. The native connections have been loaded and saved, but a full post-save refresh is not independently verified. On Mac, the original multi-source script initially returned a gateway error; separate MilkSupply and WMPExports queries with explicit source paths and a third merge query succeeded. If files move, update the literal paths in the source queries using Advanced Editor.
+Use Data > Refresh All. Wait for all queries to finish. The native connections have been loaded and saved, but a full post-save refresh is not independently verified. On Mac, the original multi-source script initially returned a gateway error; separate MilkSupply and WMPExports queries with explicit source paths and a third merge query succeeded. If files move, update the literal paths in the source queries using Advanced Editor. See [three-query reproduction templates](../powerquery/mac/README.md).
 
 ## 2. Create the dashboard in Excel
 
