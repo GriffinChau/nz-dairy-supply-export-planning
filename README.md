@@ -83,15 +83,23 @@ All inputs are observed public statistics. The 11 original export CSVs contain 7
 
 ## 4. Key findings
 
-### Historical performance overview (2015-2025)
+### 01. Historical performance and long-term divergence
 
-The Historical Overview worksheet compares all eleven calendar years, with separate milk solids and domestic WMP volumes, annual YoY growth and export variance. The year selector on the Executive Dashboard and Historical Performance covers 2016-2025; 2015 is the reference year because 2014 is outside the dataset.
+The Historical Overview worksheet compares all eleven calendar years, including annual YoY growth and export variance. The year selector supports 2016-2025; 2015 is the reference year because 2014 is outside the dataset.
 
-- National milk supply rose from 1,861.58 million kg milk solids in 2015 to 1,975.74 million kg in 2025, the highest annual value in the historical window.
-- Selected domestic WMP exports peaked at 1,594.85 million kg in 2021, then fell 18.71% to 1,296.48 million kg in 2022. These are observed changes, not evidence of specific causes.
-- The 2025 versus 2024 comparison remains the latest complete-year deep dive; 2026 is a separate partial-year forecast check.
+| Historical comparison | Milk supply | Selected domestic WMP exports |
+|---|---:|---:|
+| 2015-2025 change | +6.13% | -4.39% |
+| Annual YoY growth range (2016-2025) | -3.46% to +2.70% | -18.71% to +10.87% |
+| 2022-2025 change | +7.05% | +0.64% |
 
-### 01. Seasonal supply and export patterns
+![Long-term supply and export divergence: indexed annual performance and recovery](assets/historical-performance.svg)
+
+Milk supply reached its historical-window high in 2025 (1,975.74 million kg milk solids), while selected WMP exports remained 18.19% below their 2021 peak of 1,594.85 million kg. The 2022 export contraction of 18.71% was followed by only 0.64% net growth through 2025, despite milk supply rising 7.05%. Annual export growth also spans a wider observed range than milk supply growth.
+
+These are descriptive comparisons of observed volumes, not evidence of a structural break, causal relationship or company-specific supply constraint. Use the 2022 contraction as a historical review scenario rather than a forecast assumption. The 2025 versus 2024 comparison remains the latest complete-year deep dive; 2026 is a separate partial-year forecast check.
+
+### 02. Seasonal supply and export patterns
 
 Milk collection peaks in October (average 260.68 million kg milk solids) and reaches its low in June (18.75 million kg), with the peak approximately 13.9 times the low. The selected domestic WMP export series peaks in December and reaches its low in August. The two-month difference between average peaks is descriptive, not a demonstrated production-to-shipment lag.
 
@@ -99,7 +107,7 @@ Milk collection peaks in October (average 260.68 million kg milk solids) and rea
 
 The complete 2024/25 dairy season also shows divergence: milk supply rose 2.97% compared with 2023/24, while selected domestic WMP exports fell 6.81%. The June-May view complements the calendar-year review.
 
-### 02. Supply-export divergence and monthly variance
+### 03. Supply-export divergence and monthly variance
 
 Four months had opposite year-on-year directions: March, April, May and November. May and November were the largest monthly export declines in absolute volume compared with the corresponding 2024 months.
 
@@ -110,7 +118,7 @@ Four months had opposite year-on-year directions: March, April, May and November
 
 The 2025 net export decline of 38.43 million kg reflects gross decreases of 77.72 million kg, partly offset by 39.29 million kg of increases. May and November account for **67.08% of gross monthly decreases**, not the net annual change. Shipment timing, product mix and market context are potential investigation topics, not established causes.
 
-### 03. Forecast model performance
+### 04. Forecast model performance
 
 One-month-ahead test error (WAPE, lower is better):
 
@@ -129,7 +137,7 @@ One-month-ahead test error (WAPE, lower is better):
 
 The export-only model was slightly better at the two-month test horizon, but adding milk supply did not improve the comparable export-only model at any horizon. These results do not establish statistical significance or causation. WAPE is total absolute forecast error divided by total actual volume.
 
-### 04. Planning exceptions
+### 05. Planning exceptions
 
 A proposed review threshold of **39.08 million kg** was derived from the fifth-largest absolute seasonal forecast error in the 24-month validation period. Applying that fixed threshold to 2024-2025 flags one month.
 
@@ -143,7 +151,7 @@ A proposed review threshold of **39.08 million kg** was derived from the fifth-l
 
 The threshold is an analyst-proposed screening rule, not a confidence interval or approved business tolerance.
 
-### 05. Additional forecast performance in 2026
+### 06. Additional forecast performance in 2026
 
 | Additional retrospective check | Actual months | WAPE | Signed bias |
 |---|---:|---:|---:|
@@ -157,11 +165,12 @@ The unchanged seasonal baseline underforecast both series over these partial-yea
 | Recommended action | Proposed owner | Timing | Evidence to review |
 |---|---|---|---|
 | Use same-month-last-year as the export baseline | Planning analyst | Monthly | WAPE, MAE and signed bias |
-| Keep milk supply and export shipment views separate | Supply chain analyst | Monthly | Seasonal profiles and YoY movements |
+| Maintain separate milk supply and export planning assumptions | Supply chain analyst | Monthly | Separate seasonal profiles, annual YoY movements and multi-year trends |
 | Investigate unusually large shipment deviations before overriding the baseline | Planning and export operations | When threshold is exceeded | Dispatch timing, shipment schedules and reliable market context |
 | Check source revisions before adopting refreshed analysis | Analyst responsible for reporting | Every refresh | 132-month reconciliation; refit coefficients if the historical snapshot changes |
 | Review the exception threshold with stakeholders | Planning lead | Before operational adoption | Historical false alerts and missed material events |
 | Monitor persistent forecast bias | Planning analyst | Monthly | Actual-versus-forecast performance and direction of errors |
+| Review historical export contractions and recovery | Planning and export operations | Quarterly or when a material deviation occurs | 2022 contraction, recovery against prior peaks and available shipment or market evidence |
 
 These are proposed actions for a planning review, not implemented company changes or verified financial benefits.
 
