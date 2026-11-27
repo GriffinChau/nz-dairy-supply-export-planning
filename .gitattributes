@@ -1,0 +1,5 @@
+# Power Query M files are incorrectly classified by GitHub Linguist
+powerquery/**/*.m linguist-detectable=false
+
+# Exclude the optional dashboard construction script from language statistics
+excel/BuildExecutiveDashboard.ts linguist-detectable=false
